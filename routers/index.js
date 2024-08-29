@@ -1,16 +1,12 @@
 const express = require("express");
-const UserController = require("../controllers/userController");
-const authentication = require("../middlewares/authentication");
+const userRoutes = require("./userRoutes");
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.send("Hello, World!");
+  res.send({ message: "PPOB API" });
 });
 
-router.post("/login", UserController.login);
-router.post("/register", UserController.register);
-router.get("/profile", authentication, UserController.getProfile);
-router.put("/profile/update", authentication, UserController.updateProfile);
+router.use(userRoutes);
 
 module.exports = router;

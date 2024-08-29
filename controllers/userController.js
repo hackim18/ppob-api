@@ -2,6 +2,7 @@ const { comparePassword, hashPassword } = require("../helpers/bcrypt");
 const { signToken } = require("../helpers/jwt");
 const { sequelize } = require("../models");
 const { z } = require("zod");
+const cloudinary = require("cloudinary").v2;
 
 class UserController {
   static async login(req, res, next) {
@@ -110,6 +111,36 @@ class UserController {
         'UPDATE "Users" SET first_name = :first_name, last_name = :last_name WHERE email = :email RETURNING id, email, first_name, last_name',
         {
           replacements: { first_name, last_name, email },
+          type: sequelize.QueryTypes.UPDATE,
+        }
+      );
+
+      res.status(200).json({ message: "Update success", data: updatedUser[0][0] });
+    } catch (error) {
+      next(error);
+    }
+  }
+  static async updateImage(req, res, next) {
+    try {
+      cloudinary.config({
+        cloud_name: process.env.CLOUND_NAME,
+        api_key: process.env.API_KEY,
+        api_secret: process.env.API_SECRET,
+      });
+      const mimeType = req.file.mimetype;
+      const data = Buffer.from(req.file.buffer).toString("base64");
+      const dataURI = `data:${mimeType};base64,${data}`;
+      const result = await cloudinary.uploader.upload(dataURI, {
+        overwrite: false,
+        unique_filename: true,
+      });
+
+      const { email } = req.user;
+
+      const updatedUser = await sequelize.query(
+        'UPDATE "Users" SET profile_image = :profile_image WHERE email = :email RETURNING id, email, first_name, last_name, profile_image',
+        {
+          replacements: { profile_image: result.secure_url, email },
           type: sequelize.QueryTypes.UPDATE,
         }
       );
