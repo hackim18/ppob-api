@@ -4,20 +4,23 @@
     "first_name": "John",
     "last_name": "Doe",
     "password": "12345678",
-    "profile_image": "https://picsum.photos/200/300"
+    "profile_image": "https://picsum.photos/200/300",
+    "balance": 1000000
   },
   {
     "email": "user@nutech-integrasi.com",
     "first_name": "Jane",
     "last_name": "Smith",
     "password": "abcdef1234",
-    "profile_image": "https://picsum.photos/200/300"
+    "profile_image": "https://picsum.photos/200/300",
+    "balance": 500000
   },
   {
     "email": "alice.jones@example.com",
     "first_name": "Alice",
     "last_name": "Jones",
     "password": "12345678",
-    "profile_image": "https://picsum.photos/200/300"
+    "profile_image": "https://picsum.photos/200/300",
+    "balance": 2000000
   }
 ]
