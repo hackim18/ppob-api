@@ -29,7 +29,7 @@ class UserController {
 
       if (!isPasswordMatch) throw { name: "Unauthenticated", message: "Email or password is incorrect" };
 
-      const payload = { id: user[0].id, is_admin: user[0].is_admin };
+      const payload = { id: user[0].id, email: user[0].email };
 
       const access_token = signToken(payload);
 
@@ -70,6 +70,25 @@ class UserController {
       );
 
       res.status(201).json({ message: "Register success", data: newUser[0][0] });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async getProfile(req, res, next) {
+    try {
+      const { email } = req.user;
+
+      const user = await sequelize.query(
+        'SELECT id, email, first_name, last_name FROM "Users" WHERE email = :email LIMIT 1',
+        {
+          replacements: { email },
+          type: sequelize.QueryTypes.SELECT,
+        },
+        { email }
+      );
+
+      res.status(200).json({ message: "Success", data: user[0] });
     } catch (error) {
       next(error);
     }

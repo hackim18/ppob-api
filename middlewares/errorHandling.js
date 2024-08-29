@@ -10,6 +10,7 @@ function errorHandling(err, req, res, next) {
     SequelizeUniqueConstraintError: { statusCode: 400, message: err.message || "Validation error" },
     Unauthenticated: { statusCode: 401, message: err.message || "Unauthenticated" },
     Conflic: { statusCode: 409, message: err.message || "Conflict" },
+    TokenExpiredError: { statusCode: 401, message: "Token expired" },
     default: { statusCode: 500, message: err.message || "Internal server error" },
   };
 
