@@ -1,0 +1,62 @@
+[
+  {
+    "service_code": "SV001",
+    "service_name": "Oil Change",
+    "service_icon": "https://via.placeholder.com/50?text=Oil+Change",
+    "service_tariff": 30
+  },
+  {
+    "service_code": "SV002",
+    "service_name": "Tire Rotation",
+    "service_icon": "https://via.placeholder.com/50?text=Tire+Rotation",
+    "service_tariff": 20
+  },
+  {
+    "service_code": "SV003",
+    "service_name": "Brake Inspection",
+    "service_icon": "https://via.placeholder.com/50?text=Brake+Inspection",
+    "service_tariff": 25
+  },
+  {
+    "service_code": "SV004",
+    "service_name": "Battery Replacement",
+    "service_icon": "https://via.placeholder.com/50?text=Battery+Replacement",
+    "service_tariff": 50
+  },
+  {
+    "service_code": "SV005",
+    "service_name": "Air Filter Replacement",
+    "service_icon": "https://via.placeholder.com/50?text=Air+Filter",
+    "service_tariff": 15
+  },
+  {
+    "service_code": "SV006",
+    "service_name": "Engine Tune-up",
+    "service_icon": "https://via.placeholder.com/50?text=Engine+Tune-up",
+    "service_tariff": 75
+  },
+  {
+    "service_code": "SV007",
+    "service_name": "Transmission Service",
+    "service_icon": "https://via.placeholder.com/50?text=Transmission",
+    "service_tariff": 100
+  },
+  {
+    "service_code": "SV008",
+    "service_name": "Suspension Check",
+    "service_icon": "https://via.placeholder.com/50?text=Suspension+Check",
+    "service_tariff": 40
+  },
+  {
+    "service_code": "SV009",
+    "service_name": "Cooling System Service",
+    "service_icon": "https://via.placeholder.com/50?text=Cooling+System",
+    "service_tariff": 60
+  },
+  {
+    "service_code": "SV010",
+    "service_name": "Alignment Service",
+    "service_icon": "https://via.placeholder.com/50?text=Alignment",
+    "service_tariff": 35
+  }
+]

@@ -18,6 +18,7 @@ module.exports = {
 
     await queryInterface.bulkInsert("Users", users, {});
     await queryInterface.bulkInsert("Banners", seedData("banners"), {});
+    await queryInterface.bulkInsert("Services", seedData("services"), {});
   },
 
   async down(queryInterface, Sequelize) {
@@ -28,5 +29,6 @@ module.exports = {
     };
     await queryInterface.bulkDelete("Users", null, deleteOptions);
     await queryInterface.bulkDelete("Banners", null, deleteOptions);
+    await queryInterface.bulkDelete("Services", null, deleteOptions);
   },
 };
