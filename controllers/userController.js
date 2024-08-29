@@ -55,7 +55,7 @@ class UserController {
         type: sequelize.QueryTypes.SELECT,
       });
 
-      if (user.length) throw { name: "Conflic", message: "Email is already registered" };
+      if (user.length) throw { name: "Conflict", message: "Email is already registered" };
 
       const hashedPassword = hashPassword(password);
 
@@ -69,7 +69,7 @@ class UserController {
         }
       );
 
-      res.status(201).json({ message: "Register success", data: newUser[0] });
+      res.status(201).json({ message: "Register success", data: newUser[0][0] });
     } catch (error) {
       next(error);
     }
