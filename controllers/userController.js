@@ -93,6 +93,32 @@ class UserController {
       next(error);
     }
   }
+
+  static async updateProfile(req, res, next) {
+    const { first_name, last_name } = req.body;
+    try {
+      const userSchema = z.object({
+        first_name: z.string().min(1, "First name is required"),
+        last_name: z.string().min(1, "Last name is required"),
+      });
+
+      userSchema.parse({ first_name, last_name });
+
+      const { email } = req.user;
+
+      const updatedUser = await sequelize.query(
+        'UPDATE "Users" SET first_name = :first_name, last_name = :last_name WHERE email = :email RETURNING id, email, first_name, last_name',
+        {
+          replacements: { first_name, last_name, email },
+          type: sequelize.QueryTypes.UPDATE,
+        }
+      );
+
+      res.status(200).json({ message: "Update success", data: updatedUser[0][0] });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = UserController;
