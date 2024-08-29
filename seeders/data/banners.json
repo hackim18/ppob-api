@@ -1,0 +1,52 @@
+[
+  {
+    "banner_name": "Summer Sale",
+    "banner_image": "https://via.placeholder.com/150?text=Summer+Sale",
+    "description": "Big discounts on summer collection!"
+  },
+  {
+    "banner_name": "Winter Clearance",
+    "banner_image": "https://via.placeholder.com/150?text=Winter+Clearance",
+    "description": "Clearance sale on winter items."
+  },
+  {
+    "banner_name": "Black Friday",
+    "banner_image": "https://via.placeholder.com/150?text=Black+Friday",
+    "description": "Exclusive Black Friday deals!"
+  },
+  {
+    "banner_name": "New Year Sale",
+    "banner_image": "https://via.placeholder.com/150?text=New+Year+Sale",
+    "description": "Celebrate the New Year with great discounts."
+  },
+  {
+    "banner_name": "Holiday Specials",
+    "banner_image": "https://via.placeholder.com/150?text=Holiday+Specials",
+    "description": "Special offers for the holiday season."
+  },
+  {
+    "banner_name": "Back to School",
+    "banner_image": "https://via.placeholder.com/150?text=Back+to+School",
+    "description": "Gear up for the school year with amazing deals."
+  },
+  {
+    "banner_name": "Valentine's Day",
+    "banner_image": "https://via.placeholder.com/150?text=Valentines+Day",
+    "description": "Sweet deals for Valentine’s Day."
+  },
+  {
+    "banner_name": "Spring Collection",
+    "banner_image": "https://via.placeholder.com/150?text=Spring+Collection",
+    "description": "Fresh styles for the spring season."
+  },
+  {
+    "banner_name": "Cyber Monday",
+    "banner_image": "https://via.placeholder.com/150?text=Cyber+Monday",
+    "description": "Cyber Monday offers on all items."
+  },
+  {
+    "banner_name": "Easter Sale",
+    "banner_image": "https://via.placeholder.com/150?text=Easter+Sale",
+    "description": "Hop into savings with our Easter sale."
+  }
+]
