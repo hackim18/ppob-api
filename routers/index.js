@@ -23,7 +23,7 @@ router.get("/banner", InformationController.getAllBanners);
 router.get("/services", InformationController.getAllServices);
 
 router.get("/balance", TransactionController.getBalance);
-// router.post("/topup", TransactionController.topup);
+router.post("/topup", TransactionController.topupBalance);
 // router.post("/transaction", TransactionController.transaction);
 // router.post("/transaction/history", TransactionController.transactionHistory);
 
