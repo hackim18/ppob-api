@@ -1,0 +1,121 @@
+[
+  {
+    "user_id": 1,
+    "invoice_number": "INV17082023-001",
+    "service_code": "PULSA",
+    "transaction_type": "PAYMENT",
+    "total_amount": 1000000
+  },
+  {
+    "user_id": 1,
+    "invoice_number": "INV17082023-002",
+    "service_code": "PLN",
+    "transaction_type": "PAYMENT",
+    "total_amount": 10000
+  },
+  {
+    "user_id": 2,
+    "invoice_number": "INV17082023-003",
+    "service_code": "PDAM",
+    "transaction_type": "PAYMENT",
+    "total_amount": 40000
+  },
+  {
+    "user_id": 3,
+    "invoice_number": "INV17082023-004",
+    "service_code": "QURBAN",
+    "transaction_type": "PAYMENT",
+    "total_amount": 200000
+  },
+  {
+    "user_id": 1,
+    "invoice_number": "INV17082023-005",
+    "service_code": "PGN",
+    "transaction_type": "PAYMENT",
+    "total_amount": 50000
+  },
+  {
+    "user_id": 2,
+    "invoice_number": "INV17082023-006",
+    "service_code": "MUSIK",
+    "transaction_type": "PAYMENT",
+    "total_amount": 50000
+  },
+  {
+    "user_id": 3,
+    "invoice_number": "INV17082023-007",
+    "service_code": "TV",
+    "transaction_type": "PAYMENT",
+    "total_amount": 50000
+  },
+  {
+    "user_id": 1,
+    "invoice_number": "INV17082023-008",
+    "service_code": "PAKET_DATA",
+    "transaction_type": "PAYMENT",
+    "total_amount": 50000
+  },
+  {
+    "user_id": 2,
+    "invoice_number": "INV17082023-009",
+    "service_code": "VOUCHER_GAME",
+    "transaction_type": "PAYMENT",
+    "total_amount": 100000
+  },
+  {
+    "user_id": 3,
+    "invoice_number": "INV17082023-010",
+    "service_code": "VOUCHER_MAKANAN",
+    "transaction_type": "PAYMENT",
+    "total_amount": 100000
+  },
+  {
+    "user_id": 1,
+    "invoice_number": "INV17082023-011",
+    "service_code": "ZAKAT",
+    "transaction_type": "PAYMENT",
+    "total_amount": 300000
+  },
+  {
+    "user_id": 2,
+    "invoice_number": "INV17082023-012",
+    "service_code": "PAJAK",
+    "transaction_type": "PAYMENT",
+    "total_amount": 40000
+  },
+  {
+    "user_id": 3,
+    "invoice_number": "INV17082023-013",
+    "service_code": "PAKET_DATA",
+    "transaction_type": "PAYMENT",
+    "total_amount": 60000
+  },
+  {
+    "user_id": 1,
+    "invoice_number": "INV17082023-014",
+    "service_code": "MUSIK",
+    "transaction_type": "PAYMENT",
+    "total_amount": 70000
+  },
+  {
+    "user_id": 2,
+    "invoice_number": "INV17082023-015",
+    "service_code": "QURBAN",
+    "transaction_type": "PAYMENT",
+    "total_amount": 80000
+  },
+  {
+    "user_id": 3,
+    "invoice_number": "INV17082023-016",
+    "service_code": "ZAKAT",
+    "transaction_type": "PAYMENT",
+    "total_amount": 90000
+  },
+  {
+    "user_id": 1,
+    "invoice_number": "INV17082023-017",
+    "service_code": "PAJAK",
+    "transaction_type": "PAYMENT",
+    "total_amount": 100000
+  }
+]

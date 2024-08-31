@@ -1,62 +1,86 @@
 [
   {
-    "service_code": "SV001",
-    "service_name": "Oil Change",
-    "service_icon": "https://via.placeholder.com/50?text=Oil+Change",
-    "service_tariff": 30
+    "service_code": "PAJAK",
+    "service_name": "Pajak PBB",
+    "service_icon": "https://via.placeholder.com/50?text=Pajak+PBB",
+    "service_tariff": 40000,
+    "description": "Pembayaran Pajak Bumi dan Bangunan"
   },
   {
-    "service_code": "SV002",
-    "service_name": "Tire Rotation",
-    "service_icon": "https://via.placeholder.com/50?text=Tire+Rotation",
-    "service_tariff": 20
+    "service_code": "PLN",
+    "service_name": "Listrik",
+    "service_icon": "https://via.placeholder.com/50?text=Listrik",
+    "service_tariff": 10000,
+    "description": "Pembayaran Tagihan Listrik"
   },
   {
-    "service_code": "SV003",
-    "service_name": "Brake Inspection",
-    "service_icon": "https://via.placeholder.com/50?text=Brake+Inspection",
-    "service_tariff": 25
+    "service_code": "PDAM",
+    "service_name": "PDAM Berlangganan",
+    "service_icon": "https://via.placeholder.com/50?text=PDAM+Berlangganan",
+    "service_tariff": 40000,
+    "description": "Pembayaran Tagihan Air"
   },
   {
-    "service_code": "SV004",
-    "service_name": "Battery Replacement",
-    "service_icon": "https://via.placeholder.com/50?text=Battery+Replacement",
-    "service_tariff": 50
+    "service_code": "PULSA",
+    "service_name": "Pulsa",
+    "service_icon": "https://via.placeholder.com/50?text=Pulsa",
+    "service_tariff": 40000,
+    "description": "Pembelian Pulsa untuk Telepon Seluler"
   },
   {
-    "service_code": "SV005",
-    "service_name": "Air Filter Replacement",
-    "service_icon": "https://via.placeholder.com/50?text=Air+Filter",
-    "service_tariff": 15
+    "service_code": "PGN",
+    "service_name": "PGN Berlangganan",
+    "service_icon": "https://via.placeholder.com/50?text=PGN+Berlangganan",
+    "service_tariff": 50000,
+    "description": "Pembayaran Tagihan Gas"
   },
   {
-    "service_code": "SV006",
-    "service_name": "Engine Tune-up",
-    "service_icon": "https://via.placeholder.com/50?text=Engine+Tune-up",
-    "service_tariff": 75
+    "service_code": "MUSIK",
+    "service_name": "Musik Berlangganan",
+    "service_icon": "https://via.placeholder.com/50?text=Musik+Berlangganan",
+    "service_tariff": 50000,
+    "description": "Berlangganan Layanan Musik"
   },
   {
-    "service_code": "SV007",
-    "service_name": "Transmission Service",
-    "service_icon": "https://via.placeholder.com/50?text=Transmission",
-    "service_tariff": 100
+    "service_code": "TV",
+    "service_name": "TV Berlangganan",
+    "service_icon": "https://via.placeholder.com/50?text=TV+Berlangganan",
+    "service_tariff": 50000,
+    "description": "Berlangganan Layanan TV"
   },
   {
-    "service_code": "SV008",
-    "service_name": "Suspension Check",
-    "service_icon": "https://via.placeholder.com/50?text=Suspension+Check",
-    "service_tariff": 40
+    "service_code": "PAKET_DATA",
+    "service_name": "Paket data",
+    "service_icon": "https://via.placeholder.com/50?text=Paket+data",
+    "service_tariff": 50000,
+    "description": "Pembelian Paket Data Internet"
   },
   {
-    "service_code": "SV009",
-    "service_name": "Cooling System Service",
-    "service_icon": "https://via.placeholder.com/50?text=Cooling+System",
-    "service_tariff": 60
+    "service_code": "VOUCHER_GAME",
+    "service_name": "Voucher Game",
+    "service_icon": "https://via.placeholder.com/50?text=Voucher+Game",
+    "service_tariff": 100000,
+    "description": "Pembelian Voucher Game Online"
   },
   {
-    "service_code": "SV010",
-    "service_name": "Alignment Service",
-    "service_icon": "https://via.placeholder.com/50?text=Alignment",
-    "service_tariff": 35
+    "service_code": "VOUCHER_MAKANAN",
+    "service_name": "Voucher Makanan",
+    "service_icon": "https://via.placeholder.com/50?text=Voucher+Makanan",
+    "service_tariff": 100000,
+    "description": "Pembelian Voucher Makanan Online"
+  },
+  {
+    "service_code": "QURBAN",
+    "service_name": "Qurban",
+    "service_icon": "https://via.placeholder.com/50?text=Qurban",
+    "service_tariff": 200000,
+    "description": "Pembayaran untuk Qurban"
+  },
+  {
+    "service_code": "ZAKAT",
+    "service_name": "Zakat",
+    "service_icon": "https://via.placeholder.com/50?text=Zakat",
+    "service_tariff": 300000,
+    "description": "Pembayaran untuk Zakat"
   }
 ]
