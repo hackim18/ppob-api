@@ -15,7 +15,7 @@ class UserController {
 
       userSchema.parse({ email, password });
 
-      const user = await sequelize.query(
+      const [user] = await sequelize.query(
         'SELECT * FROM "Users" WHERE email = :email LIMIT 1',
         {
           replacements: { email },
@@ -24,13 +24,13 @@ class UserController {
         { email }
       );
 
-      if (!user.length) throw { name: "Unauthenticated", message: "Email or password is incorrect" };
+      if (!user) throw { name: "Unauthenticated", message: "Email or password is incorrect" };
 
-      const isPasswordMatch = comparePassword(password, user[0].password);
+      const isPasswordMatch = comparePassword(password, user.password);
 
       if (!isPasswordMatch) throw { name: "Unauthenticated", message: "Email or password is incorrect" };
 
-      const payload = { id: user[0].id, email: user[0].email };
+      const payload = { id: user.id, email: user.email };
 
       const access_token = signToken(payload);
 
@@ -51,18 +51,18 @@ class UserController {
 
       userSchema.parse({ email, password, first_name, last_name });
 
-      const user = await sequelize.query('SELECT * FROM "Users" WHERE email = :email LIMIT 1', {
+      const [user] = await sequelize.query('SELECT * FROM "Users" WHERE email = :email LIMIT 1', {
         replacements: { email },
         type: sequelize.QueryTypes.SELECT,
       });
 
-      if (user.length) throw { name: "Conflict", message: "Email is already registered" };
+      if (user) throw { name: "Conflict", message: "Email is already registered" };
 
       const hashedPassword = hashPassword(password);
 
       const now = new Date();
 
-      const newUser = await sequelize.query(
+      const [newUser] = await sequelize.query(
         'INSERT INTO "Users" (email, password, first_name, last_name, "createdAt", "updatedAt") VALUES (:email, :password, :first_name, :last_name, :now, :now) RETURNING id, email, first_name, last_name',
         {
           replacements: { email, password: hashedPassword, first_name, last_name, now },
@@ -70,7 +70,7 @@ class UserController {
         }
       );
 
-      res.status(201).json({ message: "Register success", data: newUser[0][0] });
+      res.status(201).json({ message: "Register success", data: newUser[0] });
     } catch (error) {
       next(error);
     }
@@ -78,18 +78,14 @@ class UserController {
 
   static async getProfile(req, res, next) {
     try {
-      const { email } = req.user;
+      const { id } = req.user;
 
-      const user = await sequelize.query(
-        'SELECT id, email, first_name, last_name FROM "Users" WHERE email = :email LIMIT 1',
-        {
-          replacements: { email },
-          type: sequelize.QueryTypes.SELECT,
-        },
-        { email }
-      );
+      const [user] = await sequelize.query('SELECT id, email, first_name, last_name FROM "Users" WHERE id = :id LIMIT 1', {
+        replacements: { id },
+        type: sequelize.QueryTypes.SELECT,
+      });
 
-      res.status(200).json({ message: "Success", data: user[0] });
+      res.status(200).json({ message: "Success", data: user });
     } catch (error) {
       next(error);
     }
@@ -105,23 +101,25 @@ class UserController {
 
       userSchema.parse({ first_name, last_name });
 
-      const { email } = req.user;
+      const { id } = req.user;
 
-      const updatedUser = await sequelize.query(
-        'UPDATE "Users" SET first_name = :first_name, last_name = :last_name WHERE email = :email RETURNING id, email, first_name, last_name',
+      const [updatedUser] = await sequelize.query(
+        'UPDATE "Users" SET first_name = :first_name, last_name = :last_name WHERE id = :id RETURNING id, email, first_name, last_name',
         {
-          replacements: { first_name, last_name, email },
+          replacements: { first_name, last_name, id },
           type: sequelize.QueryTypes.UPDATE,
         }
       );
+      console.log("🚀 ~ UserController ~ updateProfile ~ updatedUser:", updatedUser);
 
-      res.status(200).json({ message: "Update success", data: updatedUser[0][0] });
+      res.status(200).json({ message: "Update success", data: updatedUser[0] });
     } catch (error) {
       next(error);
     }
   }
   static async updateImage(req, res, next) {
     try {
+      if (!req.file) throw { name: "BadRequest", message: "Image is required" };
       cloudinary.config({
         cloud_name: process.env.CLOUND_NAME,
         api_key: process.env.API_KEY,
@@ -135,17 +133,17 @@ class UserController {
         unique_filename: true,
       });
 
-      const { email } = req.user;
+      const { id } = req.user;
 
-      const updatedUser = await sequelize.query(
-        'UPDATE "Users" SET profile_image = :profile_image WHERE email = :email RETURNING id, email, first_name, last_name, profile_image',
+      const [updatedUser] = await sequelize.query(
+        'UPDATE "Users" SET profile_image = :profile_image WHERE id = :id RETURNING id, email, first_name, last_name, profile_image',
         {
-          replacements: { profile_image: result.secure_url, email },
+          replacements: { profile_image: result.secure_url, id },
           type: sequelize.QueryTypes.UPDATE,
         }
       );
 
-      res.status(200).json({ message: "Update success", data: updatedUser[0][0] });
+      res.status(200).json({ message: "Update success", data: updatedUser[0] });
     } catch (error) {
       next(error);
     }
