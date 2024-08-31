@@ -10,7 +10,6 @@ async function authentication(req, res, next) {
 
     if (type !== "Bearer") throw { name: "Unauthenticated" };
     const payload = verifyToken(token);
-    console.log("🚀 ~ authentication ~ payload:", payload);
 
     const { email } = payload;
 

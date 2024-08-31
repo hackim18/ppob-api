@@ -110,7 +110,6 @@ class UserController {
           type: sequelize.QueryTypes.UPDATE,
         }
       );
-      console.log("🚀 ~ UserController ~ updateProfile ~ updatedUser:", updatedUser);
 
       res.status(200).json({ message: "Update success", data: updatedUser[0] });
     } catch (error) {

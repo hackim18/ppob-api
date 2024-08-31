@@ -58,7 +58,6 @@ class TransactionController {
           type: sequelize.QueryTypes.SELECT,
         }
       );
-      console.log("🚀 ~ TransactionController ~ payTransaction ~ serviceDetails:", serviceDetails);
 
       if (!serviceDetails) {
         return res.status(404).json({ message: "Service not found" });
@@ -70,28 +69,17 @@ class TransactionController {
         type: sequelize.QueryTypes.SELECT,
       });
 
-      await sequelize.query(
-        'INSERT INTO "Transactions" (user_id, invoice_number, service_code, transaction_type, total_amount, "createdAt", "updatedAt") VALUES (:user_id, :invoice_number, :service_code, :transaction_type, :total_amount, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP) RETURNING *',
+      const [transaction] = await sequelize.query(
+        'INSERT INTO "Transactions" (user_id, invoice_number, service_code, transaction_type, total_amount, "createdAt", "updatedAt") VALUES (:user_id, :invoice_number, :service_code, :transaction_type, :total_amount, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP) RETURNING invoice_number, service_code, transaction_type, total_amount, "createdAt"',
         {
           replacements: {
             user_id: userId.id,
             invoice_number,
             service_code,
-            transaction_type: "Top-up",
+            transaction_type: "PAYMENT",
             total_amount: serviceTariff,
           },
           type: sequelize.QueryTypes.INSERT,
-        }
-      );
-
-      const [transaction] = await sequelize.query(
-        'UPDATE "Transactions" SET transaction_type = :transaction_type WHERE invoice_number = :invoice_number RETURNING *',
-        {
-          replacements: {
-            transaction_type: "Completed",
-            invoice_number,
-          },
-          type: sequelize.QueryTypes.UPDATE,
         }
       );
 
@@ -105,10 +93,9 @@ class TransactionController {
     try {
       const { id } = req.user;
       const { offset = 0, limit = 5 } = req.query;
-      console.log("🚀 ~ TransactionController ~ getTransactionHistory ~ id:", id);
 
       const transactions = await sequelize.query(
-        'SELECT t.id, u.email AS user_email, t.invoice_number, s.service_name, s.description, t.transaction_type, t.total_amount, t."createdAt" FROM "Transactions" t JOIN "Users" u ON t.user_id = u.id JOIN "Services" s ON t.service_code = s.service_code WHERE t.user_id = :id ORDER BY t."createdAt" DESC OFFSET :offset LIMIT :limit',
+        'SELECT t.invoice_number, s.service_name, s.description, t.transaction_type, t.total_amount, t."createdAt" FROM "Transactions" t JOIN "Users" u ON t.user_id = u.id JOIN "Services" s ON t.service_code = s.service_code WHERE t.user_id = :id ORDER BY t."createdAt" DESC OFFSET :offset LIMIT :limit',
         {
           replacements: { id, offset, limit },
           type: sequelize.QueryTypes.SELECT,
